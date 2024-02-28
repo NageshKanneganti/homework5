@@ -3,6 +3,7 @@ import pkgutil
 import importlib
 from typing import Type
 from app.commands import CommandHandler, Command
+from app.plugins.menu import MenuCommand
 
 class App:
     '''Main application class.'''
@@ -23,10 +24,13 @@ class App:
                             self.command_handler.register_command(plugin_name, item())
                     except TypeError:
                         continue  # If item is not a class or unrelated class, just ignore
+        # Register MenuCommand
+        self.command_handler.register_command("menu", MenuCommand(self.command_handler))
 
     def start(self):
         '''Register commands from plugin module'''
         self.load_plugins()
-        print("Type 'exit' to exit.")
+        print("Welcome to my calculator applicaiton.")
+        print("\tType 'menu' to see available commands. Type 'exit' to quit application.")
         while True:  #REPL Read, Evaluate, Print, Loop
             self.command_handler.execute_command(input(">>> ").strip())
