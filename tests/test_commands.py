@@ -1,28 +1,33 @@
-
 '''Tests commands.py'''
-import pytest
-from app import App
+from app.commands import Command, CommandHandler
 
-def test_app_greet_command(capfd, monkeypatch):
-    '''Test that the REPL correctly handles the 'greet' command.'''
-    # Simulate user entering 'greet' followed by 'exit'
-    inputs = iter(['greet', 'exit'])
-    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+class MockCommand(Command):
+    '''Mock command class for testing.'''
+    def execute(self):
+        '''Mock execute method.'''
 
-    app = App()
-    with pytest.raises(SystemExit) as e:
-        app.start() # Assuming App.start() is now a static method based on previous discussions
+def test_register_command():
+    '''Test registering a command.'''
+    handler = CommandHandler()
+    command = MockCommand()
+    handler.register_command("test", command)
+    assert "test" in handler.commands
+    assert handler.commands["test"] == command
 
-    assert str(e.value) == "Exiting...", "The app did not exit as expected"
+def test_execute_command():
+    '''Test executing a registered command.'''
+    handler = CommandHandler()
+    command = MockCommand()
+    handler.register_command("test", command)
+    handler.execute_command("test")
 
-def test_app_menu_command(capfd, monkeypatch):
-    '''Test that the REPL correctly handles the 'greet' command.'''
-    # Simulate user entering 'greet' followed by 'exit'
-    inputs = iter(['menu', 'exit'])
-    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+def test_execute_command_invalid(capfd):
+    '''Test executing an invalid command.'''
+    handler = CommandHandler()
 
-    app = App()
-    with pytest.raises(SystemExit) as e:
-        app.start() # Assuming App.start() is now a static method based on previous discussions
+    # Execute an invalid command
+    handler.execute_command("invalid_command")
 
-    assert str(e.value) == "Exiting...", "The app did not exit as expected"
+    # Capture stdout and assert that the error message is printed
+    captured = capfd.readouterr()
+    assert "No such command: invalid_command" in captured.out
