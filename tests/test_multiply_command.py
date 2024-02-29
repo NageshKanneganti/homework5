@@ -1,4 +1,4 @@
-'''Tests for app/plugins/add/'''
+'''Tests for app/plugins/multiply/'''
 from decimal import Decimal
 from unittest.mock import patch
 from app.plugins.multiply import MultiplyCommand
