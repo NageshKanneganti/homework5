@@ -1,4 +1,4 @@
-'''Tests for app/plugins/subtract/'''
+'''Tests for app/plugins/subtract/__init__.py'''
 from decimal import Decimal
 from unittest.mock import patch
 from app.plugins.subtract import SubtractCommand

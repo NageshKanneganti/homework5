@@ -1,4 +1,4 @@
-'''Test File: operations.py'''
+'''Test File: app/calculator/operations.py'''
 # Disable specific pylint warnings that are not relevant for this file.
 # pylint: disable=unnecessary-dunder-call, invalid-name
 from decimal import Decimal

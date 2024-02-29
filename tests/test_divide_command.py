@@ -1,4 +1,4 @@
-'''Tests for app/plugins/divide/'''
+'''Tests for app/plugins/divide/__init__.py'''
 from decimal import Decimal
 from unittest.mock import patch
 from app.plugins.divide import DivideCommand

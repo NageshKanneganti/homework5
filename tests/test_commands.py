@@ -1,4 +1,4 @@
-'''Tests commands.py'''
+'''Tests app/commands/__init__.py'''
 from app.commands import Command, CommandHandler
 
 class MockCommand(Command):

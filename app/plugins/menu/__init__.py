@@ -1,4 +1,4 @@
-'''app/plugins/menu.py'''
+'''app/plugins/menu/__init__.py'''
 import sys
 from app.commands import Command
 

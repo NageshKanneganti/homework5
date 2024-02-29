@@ -1,10 +1,10 @@
-'''app/plugins/divide.py'''
+'''app/plugins/divide/__init__.py'''
 from app.commands import Command
 from app.calculator import Calculator
 from app.utils.validation import validate_decimal_input
 
 class DivideCommand(Command):
-    '''A command class to perform addition.'''
+    '''A command class to perform division.'''
     def execute(self):
         '''
         Execute the DivideCommand.

@@ -1,4 +1,4 @@
-'''Tests for app/plugins/multiply/'''
+'''Tests for app/plugins/multiply/__init__.py'''
 from decimal import Decimal
 from unittest.mock import patch
 from app.plugins.multiply import MultiplyCommand

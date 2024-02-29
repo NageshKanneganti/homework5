@@ -1,4 +1,4 @@
-'''Tests for app/plugins/menu/'''
+'''Tests for app/plugins/menu/__init__.py'''
 from app.commands import CommandHandler
 from app.plugins.menu import MenuCommand
 

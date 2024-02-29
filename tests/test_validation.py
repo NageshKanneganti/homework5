@@ -1,4 +1,4 @@
-'''Tests for utils/validation.py'''
+'''Tests for app/utils/validation.py'''
 # Disable specific pylint warnings that are not relevant for this file.
 # pylint: disable=unnecessary-dunder-call, invalid-name
 from decimal import Decimal

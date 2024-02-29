@@ -1,4 +1,4 @@
-'''Test for app.py'''
+'''Test for app/__init__.py'''
 import pytest
 from app import App
 

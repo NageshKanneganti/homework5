@@ -1,4 +1,4 @@
-'''app/plugins/multiply.py'''
+'''app/plugins/multiply/__init__.py'''
 from app.commands import Command
 from app.calculator import Calculator
 from app.utils.validation import validate_decimal_input

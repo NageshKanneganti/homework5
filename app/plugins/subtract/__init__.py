@@ -1,4 +1,4 @@
-'''app/plugins/subtract.py'''
+'''app/plugins/subtract/__init__.py'''
 from app.commands import Command
 from app.calculator import Calculator
 from app.utils.validation import validate_decimal_input
