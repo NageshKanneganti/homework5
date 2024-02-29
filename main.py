@@ -4,4 +4,4 @@ from app import App
 
 if __name__ == "__main__":
     # Initialize and start the application
-    controller = App().start()
+    App().start()
