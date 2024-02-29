@@ -11,3 +11,8 @@ Develope a command-line application for a basic calculator application.
 ### Bonus
 1. Implement a menu command
 2. Explore Multi-processing capabilities
+
+### Branches
+1. master
+2. OperationCommand - experimental branch that's a little more updated. 
+(I haven't merged b/c waiting to see what next assignment is to determine which path to take; both branches work)
