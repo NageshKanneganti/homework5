@@ -21,3 +21,21 @@ def validate_decimal_input(prompt):
             return num
         except InvalidOperation:
             print("Invalid input. Please enter a valid number.")
+
+def validate_division_operands(a, b):
+    '''
+    Validate division operands to prevent division by zero.
+
+    Args:
+        a (Decimal): The dividend.
+        b (Decimal): The divisor.
+
+    Raises:
+        ValueError: If the divisor is zero.
+
+    Returns:
+        tuple: Validated operands (a, b).
+    '''
+    if b == 0:
+        raise ValueError("Cannot divide by zero.")
+    return a, b

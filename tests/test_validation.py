@@ -3,7 +3,7 @@
 # pylint: disable=unnecessary-dunder-call, invalid-name
 from decimal import Decimal
 import pytest
-from app.utils.validation import validate_decimal_input
+from app.utils.validation import validate_decimal_input, validate_division_operands
 
 @pytest.fixture
 def mock_input(monkeypatch):
@@ -26,3 +26,15 @@ def test_validate_decimal_input(input_values, expected_output, capsys, mock_inpu
 
     captured = capsys.readouterr()
     assert "Invalid input. Please enter a valid number." in captured.out
+
+def test_validate_division_operands_invalid():
+    '''Test validate_division_operands with invalid divisor.'''
+    with pytest.raises(ValueError) as exc_info:
+        validate_division_operands(Decimal('10'), Decimal('0'))
+    assert str(exc_info.value) == "Cannot divide by zero."
+
+def test_validate_division_operands_returns_operands():
+    '''Test validate_division_operands returns the provided operands.'''
+    a, b = Decimal('10'), Decimal('2')
+    result = validate_division_operands(a, b)
+    assert result == (a, b)
